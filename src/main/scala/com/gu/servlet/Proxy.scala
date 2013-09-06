@@ -16,7 +16,6 @@ class Proxy extends HttpServlet {
 
     try {
       val url = new URL("https://docs.google.com/spreadsheet/pub?key=0AhDtwXOtiI5edGZwaGFDTm5qYkUzTXBWaHlFS1hybEE&output=csv")
-      //      val url = new URL(url)
 
       val connection = url.openConnection()
       val stream = connection.getContent.asInstanceOf[ByteArrayInputStream]
@@ -28,6 +27,8 @@ class Proxy extends HttpServlet {
       val compacted: String = compact(rendered)
 
       out.println(req.getParameter("callback") + "(" + compacted + ")")
+
+      res.setHeader("Cache-Control", "public, max-age=61")
       res.setStatus(200)
     } catch {
       case e: Exception => {
@@ -35,6 +36,7 @@ class Proxy extends HttpServlet {
         res.setStatus(500)
       }
     }
+
 
     out.flush()
     out.close()
