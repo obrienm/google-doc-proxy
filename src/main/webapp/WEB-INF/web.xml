@@ -1,0 +1,10 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
+<servlet>
+    <servlet-name>proxy</servlet-name>
+    <servlet-class>com.gu.servlet.Proxy</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>proxy</servlet-name>
+    <url-pattern>/*</url-pattern>
+</servlet-mapping>
+</web-app>
