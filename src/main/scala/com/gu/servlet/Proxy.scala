@@ -14,8 +14,10 @@ class Proxy extends HttpServlet {
     res.setHeader("Content-Type", "application/json; charset=utf-8")
     val out = res.getWriter()
 
+    val googleDocUrl = "https://docs.google.com/spreadsheet/pub?key=XXXXXXXX&output=csv"
+
     try {
-      val url = new URL("https://docs.google.com/spreadsheet/pub?key=0AhDtwXOtiI5edGZwaGFDTm5qYkUzTXBWaHlFS1hybEE&output=csv")
+      val url = new URL(googleDocUrl)
 
       val connection = url.openConnection()
       val stream = connection.getContent.asInstanceOf[ByteArrayInputStream]
@@ -28,6 +30,7 @@ class Proxy extends HttpServlet {
 
       out.println(req.getParameter("callback") + "(" + compacted + ")")
 
+      // cache on google's edge servers
       res.setHeader("Cache-Control", "public, max-age=61")
       res.setStatus(200)
     } catch {
@@ -37,10 +40,8 @@ class Proxy extends HttpServlet {
       }
     }
 
-
     out.flush()
     out.close()
-
   }
 
 }

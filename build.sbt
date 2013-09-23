@@ -1,6 +1,6 @@
 import sbtappengine.Plugin.{AppengineKeys => gae}
 
-name := "au-election-gogoledoc-proxy"
+name := "gogoledoc-proxy"
 
 scalaVersion := "2.10.2"
 
