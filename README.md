@@ -10,7 +10,7 @@ I have a Google Doc which needs a caching proxy, what do I do?
 ==============================================================
 
 1. fork this repo
-2. create a new GAE app in GAE's dashboard (enable billing)
+2. create a new GAE app in [GAE's dashboard](https://appengine.google.com/) - make sure you enable billing
 3. insert the GAE app name into appengine-web.xml
 4. insert the "https://docs.google.com/spreadsheet/pub?key=XXXXXXXX&output=csv" URL into Proxy.scala
 5. set APPENGINE_SDK_HOME locally for development (last used version was 1.8.4)
