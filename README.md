@@ -3,7 +3,7 @@ Google Doc proxy
 
 A Google App Engine project which proxies any given Google Doc and caches it using Google's edge cache.
 
-Last used for an interactive showing results for the [Australian general election](http://www.theguardian.com/world/datablog/interactive/2013/sep/06/australian-election-results-map)
+Last used for an interactive showing results for the [Australian general election](http://www.theguardian.com/world/interactive/2013/sep/07/australian-election-2013-senate-results-live)
 
 
 I have a Google Doc which needs a caching proxy, what do I do?
@@ -19,3 +19,4 @@ I have a Google Doc which needs a caching proxy, what do I do?
 8. appengine-dev-server
 9. hit http://127.0.0.1:8080/ (because Appengine does not work on localhost out of the box)
 10. appengine-deploy
+11. after your event has finished, copy the spreadsheet's data INTO your interactive, if possible and delete this app, it costs money
